@@ -52,10 +52,6 @@ Create a new strings file named `CobrowseIO.strings` in your app project and sel
 The content of `CobrowseIO.strings` should be the following (replace string values with your own text):
 
 ```
-"ErrorDisplayViewMessage" = "Sorry, something went wrong. Check you're online and try again.";
-"ManageSessionViewMessage" = "You're sharing screens from this app with a support agent.";
-"ManageSessionViewButtonEnd" = "End Session";
-"CobrowseViewButtonClose" = "Close";
 "FullDevicePromptViewButtonCancel" = "Cancel";
 "FullDevicePromptViewMessageSimulator" = "Full device screen capture is not available in the device simulator.";
 "FullDevicePromptViewMessageNoExtension" = "Full device screenshare is not available as a broadcast extension has not been configured.";
