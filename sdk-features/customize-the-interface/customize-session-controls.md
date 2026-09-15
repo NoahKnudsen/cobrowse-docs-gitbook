@@ -260,7 +260,7 @@ CobrowseIO.client().then(function() {
 
 {% tab title="iOS" %}
 ```swift
-import CobrowseIO
+import CobrowseSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CobrowseIODelegate {
