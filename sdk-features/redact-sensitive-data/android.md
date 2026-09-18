@@ -79,6 +79,8 @@ You can use CSS-like selectors to identify which views should be redacted. These
 {% tab title="Android Views" %}
 You can use the [simple name](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getSimpleName--) of any view class, the resource name of the view's id, or one of the supported view attributes: `id`, `contentDescription`, `tag`, `text`, `hint`, `enabled`, `checked`, `clickable`, `inputType` and `error`.
 
+The class name is that of the view's runtime class, which may differ from the tag in your layout XML. Under an AppCompat theme a `<Button>` is inflated as `AppCompatButton`, and under a Material theme as `MaterialButton`, so those are the names to use in a selector.
+
 The `#id` is the resource entry name, so a view with `android:id="@+id/card_number"` is matched by `#card_number`. Ids assigned in code with `setId()` or `View.generateViewId()` have no resource name and cannot be matched.
 
 ```java
