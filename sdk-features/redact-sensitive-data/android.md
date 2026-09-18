@@ -6,6 +6,50 @@ We provide two methods to redact views.
 
 Redacting views via your source code ensures your redaction configuration are tied directly to the application structure.
 
+#### **Redact per-view**
+
+To redact a single view you can call `cobrowseRedacted()` on any `View`, or apply `Modifier.cobrowseRedacted()` to a composable. Any children of the view are redacted too, so this also works for containers such as a `LinearLayout` or a `Column`.
+
+{% tabs %}
+{% tab title="Android Views" %}
+```kotlin
+import io.cobrowse.cobrowseRedacted
+
+findViewById<View>(R.id.card_number).cobrowseRedacted()
+```
+
+The extension function is Kotlin only and requires SDK 3.18.0 or later. From Java, use one of the interfaces below instead.
+{% endtab %}
+
+{% tab title="Jetpack Compose" %}
+Redaction for Jetpack Compose UI is shipped in a separate library on Maven Central:
+
+```
+dependencies {
+    // ... other dependencies ...
+    implementation 'io.cobrowse:cobrowse-sdk-android:3.+'
+    implementation 'io.cobrowse:cobrowse-sdk-android-compose-ui:3.+'
+}
+```
+
+{% hint style="info" %}
+You are required to use the same version of the Cobrowse.io SDK and Compose UI redaction artifacts. Using different versions of Cobrowse.io SDK artifacts is not supported.
+{% endhint %}
+
+Apply `Modifier.cobrowseRedacted()` to your composable to be redacted, like so:
+
+```kotlin
+import io.cobrowse.cobrowseRedacted
+
+Text("Redacted label",
+     modifier = Modifier
+         .background(Color.Red)
+         // Other modifiers...
+         .cobrowseRedacted())
+```
+{% endtab %}
+{% endtabs %}
+
 #### **Redact views within Activity via** `CobrowseIO.Redacted`
 
 Implement the `CobrowseIO.Redacted` interface on any Activity that contains sensitive views. This interface contains one method:
@@ -31,34 +75,6 @@ public List<View> redactedViews(@NonNull Activity activity) {
     // Return a list of redacted views for a provided activity
     return redacted;
 }
-```
-
-#### **Redact Jetpack Compose UI**
-
-Redaction for Jetpack Compose UI is shipped in a separate library on Maven Central:
-
-```
-dependencies {
-    // ... other dependencies ...
-    implementation 'io.cobrowse:cobrowse-sdk-android:3.+'
-    implementation 'io.cobrowse:cobrowse-sdk-android-compose-ui:3.+'
-}
-```
-
-{% hint style="info" %}
-You are required to use the same version of the Cobrowse.io SDK and Compose UI redaction artifacts. Using different versions of Cobrowse.io SDK artifacts is not supported.
-{% endhint %}
-
-Apply `Modifier.cobrowseRedacted()` to your composable to be redacted, like so:
-
-```kotlin
-import io.cobrowse.cobrowseRedacted
-
-Text("Redacted label",
-     modifier = Modifier
-         .background(Color.Red)
-         // Other modifiers...
-         .cobrowseRedacted())
 ```
 
 #### **Redact WebView content**
@@ -144,6 +160,14 @@ public List<View> unredactedViews(@NonNull Activity activity) {
             add(findViewById(R.id.view_to_be_unredacted));
     }};
 }
+```
+
+From Kotlin, you can also call `cobrowseUnredacted()` on the view itself. The view and its ancestors become visible to the agent while the other children of those ancestors stay redacted:
+
+```kotlin
+import io.cobrowse.cobrowseUnredacted
+
+findViewById<View>(R.id.view_to_be_unredacted).cobrowseUnredacted()
 ```
 
 Alternatively, you can implement `CobrowseIO.Unredacted` interface in your `Activity` subclasses:
