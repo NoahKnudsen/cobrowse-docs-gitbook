@@ -77,15 +77,15 @@ You can use CSS-like selectors to identify which views should be redacted. These
 
 {% tabs %}
 {% tab title="Android Views" %}
-You can use the [simple name](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getSimpleName--) of any view class, the id of the view.
+You can use the [simple name](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getSimpleName--) of any view class, the resource name of the view's id, or one of the supported view attributes: `id`, `contentDescription`, `tag`, `text`, `hint`, `enabled`, `checked`, `clickable`, `inputType` and `error`.
 
-The `#id` must be able to be used with system `android.view.View#findViewById()` and `android.app.Activity#findViewById()` methods.
+The `#id` is the resource entry name, so a view with `android:id="@+id/card_number"` is matched by `#card_number`. Ids assigned in code with `setId()` or `View.generateViewId()` have no resource name and cannot be matched.
 
 ```java
 CobrowseIO.instance().redactedViews(new String[] {
-    "Button"
-    "Label#123[contentDescription=Hello]",
-    "[testTag=\"Hello Message\"]"
+    "Button",
+    "TextView#card_number[contentDescription=Hello]",
+    "[tag=\"Hello Message\"]"
 });
 ```
 {% endtab %}
