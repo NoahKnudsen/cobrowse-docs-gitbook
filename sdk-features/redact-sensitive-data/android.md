@@ -85,7 +85,8 @@ The `#id` is the resource entry name, so a view with `android:id="@+id/card_numb
 CobrowseIO.instance().redactedViews(new String[] {
     "Button",
     "TextView#card_number[contentDescription=Hello]",
-    "[tag=\"Hello Message\"]"
+    "[tag=\"Hello Message\"]",
+    "PaymentCardView TextView"
 });
 ```
 {% endtab %}
@@ -108,7 +109,7 @@ This view can now be referenced using the selector of:
 {% endtabs %}
 
 {% hint style="info" %}
-* Nested selectors are **not** supported
+* Nested selectors are supported
 * Only the `=` comparator is supported
 {% endhint %}
 
