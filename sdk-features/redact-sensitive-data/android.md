@@ -79,11 +79,25 @@ public List<View> redactedViews(@NonNull Activity activity) {
 
 #### **Redact WebView content**
 
-Your app may show web content that contains elements that you wish to redact. This can be achieved by setting the `webviewRedactedViews` property to an array of CSS selectors that identify the elements to be redacted.
+Your app may show web content that contains elements that you wish to redact. Pass `webviewRedactedViews` an array of CSS selectors that identify the elements to be redacted. These selectors apply to every page loaded in any `WebView` in your app:
 
 ```java
-CobrowseIO.instance().webviewRedactedViews(new String[] { ".redacted",  ...some other selectors... });
+CobrowseIO.instance().webviewRedactedViews(new String[] { ".redacted", ...some other selectors... });
 ```
+
+To apply selectors only to pages whose URL matches a glob pattern, pass the pattern as the first argument:
+
+```java
+CobrowseIO.instance().webviewRedactedViews("*/checkout.html", new String[] { ".card-number" });
+```
+
+Elements inside a redacted region can be made visible again with `webviewUnredactedViews`, which takes the same arguments:
+
+```java
+CobrowseIO.instance().webviewUnredactedViews(new String[] { ".order-total" });
+```
+
+All of these must be called before `CobrowseIO.instance().start()`.
 
 ### **2. Selector based redaction**
 
