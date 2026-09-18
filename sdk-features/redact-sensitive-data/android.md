@@ -40,8 +40,8 @@ Redaction for Jetpack Compose UI is shipped in a separate library on Maven Centr
 ```
 dependencies {
     // ... other dependencies ...
-    implementation 'io.cobrowse:cobrowse-sdk-android:2.+'
-    implementation 'io.cobrowse:cobrowse-sdk-android-compose-ui:2.+'
+    implementation 'io.cobrowse:cobrowse-sdk-android:3.+'
+    implementation 'io.cobrowse:cobrowse-sdk-android-compose-ui:3.+'
 }
 ```
 
