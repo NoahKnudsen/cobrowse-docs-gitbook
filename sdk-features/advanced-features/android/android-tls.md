@@ -6,7 +6,7 @@ description: >-
 
 # Backporting TLS to older Android versions
 
-Cobrowse SDK uses [OkHttp](https://github.com/square/okhttp) for HTTPS communication and relies on default SSL implementation provided by Android OS. Android 4.4 and some Android 5.0 devices do not support TLS 1.2 by default, and TLS 1.3 support is only enabled starting Android 10. Our servers now require clients to use TLS 1.2 with an up to date set of ciphers. To use some legacy Android versions with modern TLS you might want to consider using one of alternative [security providers](https://square.github.io/okhttp/security/security_providers/) with OkHttp, e.g. Conscrypt.
+Cobrowse SDK uses [OkHttp](https://github.com/lysine-dev/okhttp) for HTTPS communication and relies on default SSL implementation provided by Android OS. Android 4.4 and some Android 5.0 devices do not support TLS 1.2 by default, and TLS 1.3 support is only enabled starting Android 10. Our servers now require clients to use TLS 1.2 with an up to date set of ciphers. To use some legacy Android versions with modern TLS you might want to consider using one of alternative [security providers](https://lysine.dev/okhttp/security/security_providers/) with OkHttp, e.g. Conscrypt.
 
 ### Example of using a Conscrypt-based `OkHttpClient` with Cobrowse SDK
 

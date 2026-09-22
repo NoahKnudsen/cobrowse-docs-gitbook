@@ -55,7 +55,7 @@ If you do not have Grafana installed in your cluster already, then may consider 
 {% hint style="warning" %}
 These example configurations and commands are intended to demonstrate the Helm repositories and chart resources you can use as a reference to help deploy a non-production Grafana server that is capable of querying a local Prometheus server.
 
-For a production-grade deployment with appropriate **authentication**, **persistence**, and **ingress**, we recommend you research the [Grafana configuration options](https://grafana.com/docs/grafana/latest/administration/configuration/) and the [full Grafana helm chart values.yaml](https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml) file that are available to make the appropriate decisions for your organization.
+For a production-grade deployment with appropriate **authentication**, **persistence**, and **ingress**, we recommend you research the [Grafana configuration options](https://grafana.com/docs/grafana/latest/administration/configuration/) and the [full Grafana helm chart values.yaml](https://github.com/grafana-community/helm-charts/blob/main/charts/grafana/values.yaml) file that are available to make the appropriate decisions for your organization.
 {% endhint %}
 
 There is one chart that deploys the Grafana server with ingress and configuration to query your Prometheus instance, which can get you querying metrics as quickly as possible:

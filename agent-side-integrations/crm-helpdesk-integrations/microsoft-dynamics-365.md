@@ -19,7 +19,7 @@ Cobrowse for Microsoft Dynamics 365 Customer Service
 To install and configure the Cobrowse integration with Microsoft Dynamics 365:
 
 1. Install the app from the [Microsoft AppSource store](https://appsource.microsoft.com/en-us/product/dynamics-365/cobrowseiollc.integration).
-2. _(Optional)_ If you are [self-hosting](../../enterprise-self-hosting/self-hosting-overview.md) your Cobrowse.io instance, follow the [self-hosted instructions](microsoft-dynamics-365.md#self-hosted).
+2. _(Optional)_ If you are [self-hosting](../../enterprise-self-hosting/self-hosting-overview.md) your Cobrowse.io instance, follow the [self-hosted instructions](microsoft-dynamics-365.md#self-hosting).
 3. Sign into your Microsoft Dynamics 365 installation and assert you have a verified email address. You can verify in **Copilot Service Admin Center** > User management > Users > Manage > Your user > **Approve Email**
 4. As a Microsoft Dynamics administrator, open the Cobrowse.io application from the app launcher. Under **Setup**, select the **OAuth Consent** link. This will generate a URL that must be approved by an Azure administrator.
 

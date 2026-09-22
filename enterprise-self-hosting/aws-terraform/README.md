@@ -92,7 +92,7 @@ It can take up to 30 minutes until the ingress is created. Run the following com
 terraform refresh
 ```
 
-You should have an output as described in [Section 5](./###-5.-Configure-your-DNS-provider).
+You should have an output as described in [Section 5](#id-5.-configure-your-dns-provider).
 
 {% hint style="info" %}
 **Configure kubectl**
